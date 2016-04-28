@@ -14,6 +14,8 @@
 		49160DDC1CCA23160006B83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49160DDA1CCA23160006B83C /* LaunchScreen.storyboard */; };
 		49160DE71CCA23160006B83C /* BooksPriceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49160DE61CCA23160006B83C /* BooksPriceTests.swift */; };
 		49160DF21CCA23160006B83C /* BooksPriceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49160DF11CCA23160006B83C /* BooksPriceUITests.swift */; };
+		49FC95B11CD1F9FD0067977A /* Kumulos_ARMv7-Combined.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FC95AD1CD1F9FD0067977A /* Kumulos_ARMv7-Combined.a */; };
+		49FC95B21CD1F9FD0067977A /* Kumulos.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FC95AF1CD1F9FD0067977A /* Kumulos.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,11 @@
 		49160DED1CCA23160006B83C /* BooksPriceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BooksPriceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49160DF11CCA23160006B83C /* BooksPriceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksPriceUITests.swift; sourceTree = "<group>"; };
 		49160DF31CCA23160006B83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49FC95AC1CD1F9FC0067977A /* BooksPrice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BooksPrice-Bridging-Header.h"; sourceTree = "<group>"; };
+		49FC95AD1CD1F9FD0067977A /* Kumulos_ARMv7-Combined.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "Kumulos_ARMv7-Combined.a"; sourceTree = "<group>"; };
+		49FC95AE1CD1F9FD0067977A /* Kumulos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kumulos.h; sourceTree = "<group>"; };
+		49FC95AF1CD1F9FD0067977A /* Kumulos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kumulos.m; sourceTree = "<group>"; };
+		49FC95B01CD1F9FD0067977A /* libKumulos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libKumulos.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FC95B11CD1F9FD0067977A /* Kumulos_ARMv7-Combined.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +85,7 @@
 		49160DC51CCA23150006B83C = {
 			isa = PBXGroup;
 			children = (
+				49FC95AB1CD1F9870067977A /* KumulosAPI */,
 				49160DD01CCA23160006B83C /* BooksPrice */,
 				49160DE51CCA23160006B83C /* BooksPriceTests */,
 				49160DF01CCA23160006B83C /* BooksPriceUITests */,
@@ -123,6 +132,19 @@
 				49160DF31CCA23160006B83C /* Info.plist */,
 			);
 			path = BooksPriceUITests;
+			sourceTree = "<group>";
+		};
+		49FC95AB1CD1F9870067977A /* KumulosAPI */ = {
+			isa = PBXGroup;
+			children = (
+				49FC95AD1CD1F9FD0067977A /* Kumulos_ARMv7-Combined.a */,
+				49FC95AE1CD1F9FD0067977A /* Kumulos.h */,
+				49FC95AF1CD1F9FD0067977A /* Kumulos.m */,
+				49FC95B01CD1F9FD0067977A /* libKumulos.h */,
+				49FC95AC1CD1F9FC0067977A /* BooksPrice-Bridging-Header.h */,
+			);
+			name = KumulosAPI;
+			path = BooksPrice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49160DD41CCA23160006B83C /* ViewController.swift in Sources */,
+				49FC95B21CD1F9FD0067977A /* Kumulos.m in Sources */,
 				49160DD21CCA23160006B83C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,10 +420,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BooksPrice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BooksPrice",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = dpu.BooksPrice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BooksPrice/BooksPrice-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -408,10 +438,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = BooksPrice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BooksPrice",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = dpu.BooksPrice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BooksPrice/BooksPrice-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -482,6 +518,7 @@
 				49160DF81CCA23160006B83C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49160DF91CCA23160006B83C /* Build configuration list for PBXNativeTarget "BooksPriceTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +527,7 @@
 				49160DFB1CCA23160006B83C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49160DFC1CCA23160006B83C /* Build configuration list for PBXNativeTarget "BooksPriceUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +536,7 @@
 				49160DFE1CCA23160006B83C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

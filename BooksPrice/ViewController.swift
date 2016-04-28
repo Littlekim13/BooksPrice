@@ -9,6 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var txtUsername: UITextField!
+    @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    @IBOutlet weak var txtConfirmPassword: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +26,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func buttonSignUp_OnClick() {
+        if txtPassword.text == txtConfirmPassword.text{
+            let kumuAPI = Kumulos()
+            kumuAPI.createUserWithUsername(txtUsername.text, andPassword: txtPassword.text, andEmail: txtEmail.text)
+        }
 
+    }
+
+    @IBAction func buttonCancel_OnClick() {
+        txtUsername.text = ""
+        txtPassword.text = ""
+        txtEmail.text = ""
+        txtConfirmPassword.text = ""
+    }
 }
 
