@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class ViewController: UIViewController , KumulosDelegate
+class ViewController: UIViewController ,KumulosDelegate
 {
     var kumuAPI = Kumulos()
 
@@ -19,73 +19,93 @@ class ViewController: UIViewController , KumulosDelegate
     
     var someusername = [String]()
     var somepassword = [String]()
-    
-    var usernamee = ""
-    
+ 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        kumuAPI = Kumulos()
         kumuAPI.delegate = self
         kumuAPI.selectUserWithUsername("")
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        kumuAPI.selectUserWithUsername("")
     }
-    
-    //    override func  viewDidAppear(animated: Bool)
-    //    {
-    //        self.performSegueWithIdentifier("signinView", sender: self)
-    //    }
-
     
     @IBAction func buttonSignin_Onclick(sender: AnyObject)
     {
-        for item in someusername
+        var countusername = 0
+        var countpassword = 0
+        
+        if(txtUsername.text != nil)
         {
-            if (item.isEqual(txtUsername.text))
+            for item in someusername
             {
-                for items in somepassword
+//                print("/////////////////////////")
+//                print(item)
+//                print("/////////////////////////")
+            
+                if (item == txtUsername.text)
                 {
-                    print("---------------")
-                    print(items)
-                    print("---------------")
-                    
-                    if(items.isEqual(txtPassword.text))
+                    countusername = 1
+                
+                    for items in somepassword
                     {
-                        NSLog("SignIn Success");
-                        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("BookPrice") as! BookPrice
-                        self.presentViewController(vc, animated: true, completion: nil)
-                    }
-                    else
-                    {
-                        let alertController = UIAlertController(title: "Error", message: "Password", preferredStyle: UIAlertControllerStyle.Alert);
-                            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                        self.presentViewController(alertController, animated: true, completion: nil)
+//                        print("---------------")
+//                        print(items)
+//                        print("---------------")
+                
+                        if(items.isEqual(txtPassword.text))
+                        {
+                            NSLog("SignIn Success");
+                            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("BookPrice") as! BookPrice
+                            self.presentViewController(vc, animated: true, completion: nil)
+                        
+                            countpassword = 1
+                        }
+                        else
+                        {
+                            countpassword = 2
+                        }
                     }
                 }
-            }
-            else
-            {
-                let alertController = UIAlertController(title: "Error", message: "Username", preferredStyle: UIAlertControllerStyle.Alert);
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                self.presentViewController(alertController, animated: true, completion: nil)
+                
+                    countusername = 2
             }
         }
+        
+        if(txtUsername.text == "" || txtPassword.text == "")
+        {
+            let alertController = UIAlertController(title: "Error", message: "Please Enter a Username or Password", preferredStyle: UIAlertControllerStyle.Alert);
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        if(countusername == 1 || countpassword == 2)
+        {
+            let alertController = UIAlertController(title: "Error", message: "Invalid a Password", preferredStyle: UIAlertControllerStyle.Alert);
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        if(countusername == 0 || countpassword == 0)
+        {
+            let alertController = UIAlertController(title: "Error", message: "Invalid a Username or Password", preferredStyle: UIAlertControllerStyle.Alert);
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+
+
+        
     }
-    
-    
-      
-    func kumulosAPI(kumulos: Kumulos!, apiOperation operation: KSAPIOperation!, selectDataDidCompleteWithResult theResults: [AnyObject]!)
+
+    func kumulosAPI(kumulos: Kumulos!, apiOperation operation: KSAPIOperation!, selectUserDidCompleteWithResult theResults: [AnyObject]!)
     {
-        print("*************************************")
-        print(theResults)
-        print("*************************************")
+//        print("*************************************")
+//        print(theResults)
+//        print("*************************************")
         
         let json = JSON(theResults)
         //      print("+++++++++++++++++++")
@@ -95,16 +115,19 @@ class ViewController: UIViewController , KumulosDelegate
             var usernames = json[i]["username"].stringValue
             var passwords = json[i]["password"].stringValue
             // วนในเจสันหมด แล้วเอามาเก็บไว้ในตัวแปร
-                someusername.append(usernames)
-                somepassword.append(passwords)
-                    print("+++++++++++++++++++")
+            someusername.append(usernames)
+            somepassword.append(passwords)
             
+            print(json[i]["username"].stringValue)
             print(json[i]["password"].stringValue)
-            
-                    print("+++++++++++++++++++")
+            print("+++++++++++++++++++")
         }
+    }
     
+    @IBAction func buttonCancel_Onclick()
+    {
+        txtUsername.text = ""
+        txtPassword.text = ""
     }
     
 }
-
