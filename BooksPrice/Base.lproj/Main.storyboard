@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TXi-OE-2Ck">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CyD-DD-xJV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -213,7 +213,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htT-hE-2WP">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htT-hE-2WP">
                                 <rect key="frame" x="318" y="28" width="37" height="30"/>
                                 <state key="normal" title="Out"/>
                                 <connections>
@@ -277,16 +277,27 @@
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1n-kk-TY0">
+                                <rect key="frame" x="22" y="28" width="30" height="30"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="JSa-8t-LDz" kind="show" id="id0-34-9fh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="htT-hE-2WP" secondAttribute="trailing" constant="22" id="18x-Wp-ZKC"/>
                             <constraint firstItem="lFP-zh-ciS" firstAttribute="centerX" secondItem="46R-n4-qpp" secondAttribute="centerX" id="2CH-jG-iIV"/>
                             <constraint firstAttribute="trailing" secondItem="o22-U1-IC3" secondAttribute="trailing" constant="44" id="2NH-ZY-w2Q"/>
                             <constraint firstAttribute="trailing" secondItem="hIs-w0-pXz" secondAttribute="trailing" constant="44" id="8w9-TU-xBE"/>
                             <constraint firstItem="HOg-ke-oJq" firstAttribute="leading" secondItem="46R-n4-qpp" secondAttribute="leading" constant="44" id="C9t-KU-SV1"/>
                             <constraint firstItem="LLA-Ug-FZP" firstAttribute="leading" secondItem="HOg-ke-oJq" secondAttribute="trailing" constant="25" id="CPX-wm-eUl"/>
+                            <constraint firstItem="m1n-kk-TY0" firstAttribute="leading" secondItem="46R-n4-qpp" secondAttribute="leading" constant="22" id="Npe-qA-KYb"/>
                             <constraint firstItem="WyE-ip-hhG" firstAttribute="leading" secondItem="SCg-2Y-Idj" secondAttribute="trailing" constant="15" id="PLM-Ue-gdH"/>
                             <constraint firstItem="o22-U1-IC3" firstAttribute="leading" secondItem="uet-Gu-CXr" secondAttribute="trailing" constant="10" id="Sgk-C6-OGk"/>
+                            <constraint firstItem="m1n-kk-TY0" firstAttribute="top" secondItem="34Q-sH-Ij3" secondAttribute="bottom" constant="8" id="Umb-57-Ib5"/>
+                            <constraint firstItem="htT-hE-2WP" firstAttribute="top" secondItem="34Q-sH-Ij3" secondAttribute="bottom" constant="8" id="b1R-bo-kwH"/>
                             <constraint firstItem="hIs-w0-pXz" firstAttribute="leading" secondItem="DIh-k9-Yab" secondAttribute="trailing" constant="10" id="exv-fb-yGd"/>
                             <constraint firstItem="SCg-2Y-Idj" firstAttribute="leading" secondItem="46R-n4-qpp" secondAttribute="leading" constant="44" id="iTe-YT-6CX"/>
                         </constraints>
@@ -296,6 +307,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpL-2L-294" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-82.5" y="330.5"/>
+        </scene>
+        <!--Map Controller-->
+        <scene sceneID="M0d-P0-1HV">
+            <objects>
+                <viewController id="JSa-8t-LDz" customClass="MapController" customModule="BooksPrice" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xv4-df-Xoy"/>
+                        <viewControllerLayoutGuide type="bottom" id="g1o-BC-Gqn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jvp-xt-lQU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rWH-em-Tq0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rWH-em-Tq0" firstAttribute="top" secondItem="jvp-xt-lQU" secondAttribute="top" id="F2o-3d-7gQ"/>
+                            <constraint firstItem="rWH-em-Tq0" firstAttribute="bottom" secondItem="g1o-BC-Gqn" secondAttribute="top" id="HeP-lM-6FU"/>
+                            <constraint firstItem="rWH-em-Tq0" firstAttribute="leading" secondItem="jvp-xt-lQU" secondAttribute="leading" id="IUs-wQ-rIb"/>
+                            <constraint firstAttribute="trailing" secondItem="rWH-em-Tq0" secondAttribute="trailing" id="aT1-dq-fKU"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="rWH-em-Tq0" id="koB-VY-ZCK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sy1-f2-0OA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="415.5" y="784.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

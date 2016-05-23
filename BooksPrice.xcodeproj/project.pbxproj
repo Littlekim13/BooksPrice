@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BA9756A9B4BAAC5F71DE976 /* Pods_BooksPrice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60837DD25A1541CD7C664D62 /* Pods_BooksPrice.framework */; };
+		490722051CF3425700C7645E /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490722041CF3425700C7645E /* MapController.swift */; };
 		49160DD21CCA23160006B83C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49160DD11CCA23160006B83C /* AppDelegate.swift */; };
 		49160DD41CCA23160006B83C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49160DD31CCA23160006B83C /* ViewController.swift */; };
 		49160DD71CCA23160006B83C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49160DD51CCA23160006B83C /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		490722041CF3425700C7645E /* MapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		49160DCE1CCA23160006B83C /* BooksPrice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BooksPrice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49160DD11CCA23160006B83C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49160DD31CCA23160006B83C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				49160DD31CCA23160006B83C /* ViewController.swift */,
 				49EEAE721CE32D5000776D95 /* RegisterController.swift */,
 				49EEAE741CE32E9000776D95 /* BookPrice.swift */,
+				490722041CF3425700C7645E /* MapController.swift */,
 				49160DD51CCA23160006B83C /* Main.storyboard */,
 				49160DD81CCA23160006B83C /* Assets.xcassets */,
 				49160DDA1CCA23160006B83C /* LaunchScreen.storyboard */,
@@ -367,6 +370,7 @@
 				49160DD41CCA23160006B83C /* ViewController.swift in Sources */,
 				49FC95B21CD1F9FD0067977A /* Kumulos.m in Sources */,
 				49EEAE751CE32E9000776D95 /* BookPrice.swift in Sources */,
+				490722051CF3425700C7645E /* MapController.swift in Sources */,
 				49160DD21CCA23160006B83C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
