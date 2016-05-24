@@ -118,6 +118,7 @@ class ViewController: UIViewController ,KumulosDelegate
             someusername.append(usernames)
             somepassword.append(passwords)
             
+            print(" ")
             print(json[i]["username"].stringValue)
             print(json[i]["password"].stringValue)
             print("+++++++++++++++++++")

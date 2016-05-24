@@ -12,56 +12,79 @@ class BookPrice: UIViewController , KumulosDelegate
 {
     var kumuAPI = Kumulos()
     
+    var someid = [String]()
+    var somename = [String]()
+    var someauthors = [String]()
+    var someprice = [String]()
+    
 //BookPriceView
     @IBOutlet weak var id: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var authors: UILabel!
     @IBOutlet weak var price: UILabel!
+    var pricein: Int = 0
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        kumuAPI.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
+        kumuAPI.selectDataWithName_Books(name.text, andAuthors_Books: authors.text, andPrice_Books: pricein, andID_Books: id.text)
+        
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        kumuAPI.selectDataWithName_Books(name.text, andAuthors_Books: authors.text, andPrice_Books: pricein, andID_Books: id.text)
+        
+        
     }
     
-    @IBAction func books()
+    
+    @IBAction func books() {
+
+        
+    }
+    
+    
+    
+    func kumulosAPI(kumulos: Kumulos!, apiOperation operation: KSAPIOperation!, selectDataDidCompleteWithResult theResults: [AnyObject]!)
     {
-        func kumulosAPI(kumulos: Kumulos!, apiOperation operation: KSAPIOperation!, selectUserDidCompleteWithResult theResults: [AnyObject]!)
-        {
-            print("*************************************")
-            print(theResults)
-            print("*************************************")
-            
-            let json = JSON(theResults)
+        //            print("*************************************")
+        //            print(theResults)
+        //            print("*************************************")
+        
+        let json = JSON(theResults)
         //      print("+++++++++++++++++++")
         
-            for (var i = 0; i<json.count;i=i+1)
-            {
-                var ids = json[i]["id"].stringValue
-                var names = json[i]["name"].stringValue
-                var authorss = json[i]["authors"].stringValue
-                var prices = json[i]["price"].stringValue
+        
+        for (var x = 0; x<json.count;x=x+1)
+        {
+            var ids = json[x]["id"].stringValue
+            var names = json[x]["name"].stringValue
+            var authorss = json[x]["authors"].stringValue
+            var prices = json[x]["price"].stringValue
             // วนในเจสันหมด แล้วเอามาเก็บไว้ในตัวแปร
-                print("+++++++++++++++++++")
+            //   print("+++++++++++++++++++")
             
-                print(json[i]["id"].stringValue)
-                print(json[i]["name"].stringValue)
-                print(json[i]["authors"].stringValue)
-                print(json[i]["price"].stringValue)
+            someid.append(ids)
+            somename.append(names)
+            someauthors.append(authorss)
+            someprice.append(prices)
             
-                print("+++++++++++++++++++")
-            }
+            print(" ")
+            print(json[x]["id"].stringValue)
+            print(json[x]["name"].stringValue)
+            print(json[x]["authors"].stringValue)
+            print(json[x]["price"].stringValue)
+            print("+++++++++++++++++++")
         }
     }
 
     
+    
+    
+    
+
 
 }

@@ -49,6 +49,8 @@ class RegisterController: UIViewController
                 var alert = UIAlertView(title: "Success", message: "Register", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
                 
+                
+                
                 NSLog("SignIn Success");
                 
                 //let vc = self.storyboard?.instantiateViewControllerWithIdentifier("BookPrice") as! BookPrice

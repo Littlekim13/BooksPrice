@@ -224,7 +224,7 @@
                                 <rect key="frame" x="311" y="591" width="43" height="30"/>
                                 <state key="normal" title="Books"/>
                                 <connections>
-                                    <action selector="books" destination="TXi-OE-2Ck" eventType="touchUpInside" id="PQX-yX-J3H"/>
+                                    <action selector="books" destination="TXi-OE-2Ck" eventType="touchUpInside" id="Ajc-qk-gL5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="ID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOg-ke-oJq">
@@ -271,12 +271,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Books_Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFP-zh-ciS">
-                                <rect key="frame" x="20" y="54" width="335" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1n-kk-TY0">
                                 <rect key="frame" x="22" y="28" width="30" height="30"/>
                                 <state key="normal" title="Map"/>
@@ -284,6 +278,12 @@
                                     <segue destination="JSa-8t-LDz" kind="show" id="id0-34-9fh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Books_Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFP-zh-ciS">
+                                <rect key="frame" x="20" y="54" width="335" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -303,6 +303,12 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="authors" destination="uet-Gu-CXr" id="6DA-VX-ZgW"/>
+                        <outlet property="id" destination="SCg-2Y-Idj" id="bVX-dD-z1v"/>
+                        <outlet property="name" destination="WyE-ip-hhG" id="RI1-GI-PHg"/>
+                        <outlet property="price" destination="o22-U1-IC3" id="cFF-Dg-cQA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpL-2L-294" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -323,6 +329,13 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rWH-em-Tq0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKT-wG-H2S">
+                                <rect key="frame" x="315" y="28" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="TXi-OE-2Ck" kind="show" id="lPL-WQ-FaR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -330,6 +343,8 @@
                             <constraint firstItem="rWH-em-Tq0" firstAttribute="bottom" secondItem="g1o-BC-Gqn" secondAttribute="top" id="HeP-lM-6FU"/>
                             <constraint firstItem="rWH-em-Tq0" firstAttribute="leading" secondItem="jvp-xt-lQU" secondAttribute="leading" id="IUs-wQ-rIb"/>
                             <constraint firstAttribute="trailing" secondItem="rWH-em-Tq0" secondAttribute="trailing" id="aT1-dq-fKU"/>
+                            <constraint firstAttribute="trailing" secondItem="LKT-wG-H2S" secondAttribute="trailing" constant="26" id="eCa-nH-yDs"/>
+                            <constraint firstItem="LKT-wG-H2S" firstAttribute="top" secondItem="Xv4-df-Xoy" secondAttribute="bottom" constant="10" id="hmd-4J-u0f"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
